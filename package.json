@@ -1,0 +1,122 @@
+{
+  "name": "monorepo",
+  "private": true,
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "workspaces": [
+    "packages/**"
+  ],
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "start": "start-storybook",
+    "build-docs": "build-storybook -c .storybook -o docs",
+    "prettier": "prettier --check --debug-check '{.storybook,packages}/**/*.js'",
+    "prettier-clean": "prettier --write '{.storybook,packages}/**/*.js'",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "lint": "eslint ./packages/**/*.tsx ",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "buildd": "npm run build:js",
+    "build:types": "lerna run prepublishOnly -- --emitDeclarationOnly --declarationDir ./lib --noEmit false",
+    "build:js": "lerna exec --parallel -- babel --root-mode upward src -d lib --extensions \".ts,.tsx\" --ignore **/*.test.ts,**/*.stories.tsx,**/*.d.ts --source-maps inline",
+    "pre-push": "yarn lint"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js",
+      ".(js|jsx)": "babel-jest"
+    },
+    "mapCoverage": true,
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/"
+    ],
+    "preset": "ts-jest/presets/js-with-ts",
+    "testRegex": "(/test/.*|\\.(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@emotion/babel-preset-css-prop": "^10.0.9",
+    "@emotion/core": "^10.0.10",
+    "@storybook/addon-actions": "^5.0.6",
+    "@storybook/addon-info": "^5.0.6",
+    "@storybook/addon-knobs": "^5.0.6",
+    "@storybook/addon-links": "^5.0.6",
+    "@storybook/addon-storyshots": "^5.0.11",
+    "@storybook/addons": "^5.0.6",
+    "@storybook/react": "^5.0.6",
+    "@types/jest": "^24.0.11",
+    "@types/react": "^16.8.13",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-test-renderer": "^16.8.1",
+    "@types/storybook__addon-actions": "^3.4.2",
+    "@types/storybook__addon-info": "^4.1.1",
+    "@types/storybook__addon-knobs": "^4.0.5",
+    "@types/storybook__addon-storyshots": "^4.0.0",
+    "@types/storybook__react": "^4.0.1",
+    "@types/styled-system": "^4.1.0",
+    "@types/webpack": "^4.4.31",
+    "@types/webpack-env": "^1.13.9",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-macros": "^2.5.1",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-typescript": "^3.0.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-emotion": "^10.0.7",
+    "eslint-plugin-eslint-comments": "^3.1.1",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jest": "^22.5.1",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-unicorn": "^8.0.2",
+    "husky": "^1.3.1",
+    "jest": "^24.7.1",
+    "lerna": "^3.13.2",
+    "precise-commits": "^1.0.2",
+    "prettier": "1.16.4",
+    "react-test-renderer": "^16.8.6",
+    "require-context.macro": "^1.0.4",
+    "rollup": "^1.12.2",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-terser": "^4.0.4",
+    "storybook-addon-jsx": "^7.1.0",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.4.2",
+    "webpack-cli": "^3.3.2"
+  },
+  "dependencies": {
+    "@emotion/styled": "^10.0.10",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "precise-commits",
+      "pre-push": "yarn pre-push"
+    }
+  }
+}

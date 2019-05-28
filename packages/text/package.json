@@ -1,0 +1,16 @@
+{
+  "name": "@monorepo/text",
+  "private": true,
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublishOnly": "tsc"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

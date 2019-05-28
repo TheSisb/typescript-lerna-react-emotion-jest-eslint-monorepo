@@ -1,0 +1,21 @@
+{
+  "name": "@monorepo/heading",
+  "private": true,
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublishOnly": "tsc"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@monorepo/text": "^0.0.1"
+  },
+  "peerDependencies": {
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.10",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-system": "^4.1.0"
+  }
+}
