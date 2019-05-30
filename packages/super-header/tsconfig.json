@@ -4,5 +4,5 @@
     "outDir": "lib",
   },
   "include": ["src"],
-  "references": [{"path": "../text"}]
+  "references": [{"path": "../heading"}]
 }

@@ -9,4 +9,4 @@ const Heading: React.FC<HeadingProps> = ({children}) => <Text>{children}</Text>;
 
 Heading.defaultProps = {};
 
-export {Heading};
+export {Heading, Text};
