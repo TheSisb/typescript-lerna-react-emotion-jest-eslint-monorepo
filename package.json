@@ -21,7 +21,8 @@
     "buildd": "npm run build:js",
     "build:types": "lerna run prepublishOnly -- --emitDeclarationOnly --declarationDir ./lib --noEmit false",
     "build:js": "lerna exec --parallel -- babel --root-mode upward src -d lib --extensions \".ts,.tsx\" --ignore **/*.test.ts,**/*.stories.tsx,**/*.d.ts --source-maps inline",
-    "pre-push": "yarn lint"
+    "pre-push": "yarn lint",
+    "clean": "lerna clean --yes && lerna exec -- rm -rf lib"
   },
   "jest": {
     "transform": {
