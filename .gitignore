@@ -69,3 +69,4 @@ typings/
 
 # Built distributables
 lib/
+*.tsbuildinfo
