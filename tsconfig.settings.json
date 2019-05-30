@@ -3,7 +3,7 @@
     // https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping
     "baseUrl": "./packages",
     "paths": {
-      "@monorepo/*": ["./*/src"]
+      "@monorepo/*": ["./*/src/"]
     },
     // Target latest version of ECMAScript.
     "target": "esnext",
