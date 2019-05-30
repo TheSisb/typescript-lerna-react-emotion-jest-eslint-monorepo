@@ -21,4 +21,8 @@ module.exports = {
     browser: true,
     jest: true,
   },
+  rules: {
+    'react/prop-types': 'off',
+    'import/prefer-default-export': 'off'
+  },
 };

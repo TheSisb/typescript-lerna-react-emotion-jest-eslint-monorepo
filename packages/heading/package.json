@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "description": "",
-  "main": "lib/src/index.js",
+  "main": "lib/index.js",
   "types": "lib/src/index.d.ts",
   "scripts": {
     "prepublishOnly": "tsc"
